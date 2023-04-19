@@ -6,6 +6,7 @@ const port = process.env.PORT || 3500
 const publicStaticDirPath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
 const partialsPath = path.join(__dirname, '../templates/partials');
+const weatherData =  require('../utils/weatherData');
 
 app.use(express.static(publicStaticDirPath));
 
@@ -14,8 +15,13 @@ app.use(express.static(publicStaticDirPath));
 })
 
 app.get('/weather',(req,res) => {
-    res.send("This is weather ")
-})
+    const address =  req.query.address
+
+    weatherData(address,(result) => {
+        console.log(result)
+    })
+
+});
 
 app.get("*",(req, res ) => {
     res.send('Page Not Found.')
