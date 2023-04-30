@@ -14,9 +14,9 @@ const locationElement = document.querySelector('.place');
 const dateElemnt = document.querySelector('.date')
 
 
-const monthName = ["ජනවාරි", "පෙබරවාරි", "මාර්තු", "අප්‍රේල්", "මැයි", "ජූනි", "ජූලි", "අගෝස්තු", "සැප්තැම්බර්", "ඔක්තෝම්බර්", "නොවැම්බර්", "දෙසැම්බර්"];
-dateElemnt.textContent = monthName[new Date().getMonth()] +" "+ new Date().getDate();
-
+const monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+//dateElemnt.textContent = monthName[new Date().getMonth()] +" "+ new Date().getDate();
+dateElemnt.textContent = new Date().getDate() + " " + monthName[new Date().getMonth()];
 
 
 
@@ -24,7 +24,7 @@ weatherForm.addEventListener('submit',(event) => {
     event.preventDefault();
     console.log(search.value);
 
-    locationElement.textContent = "මොකද හදිස්සි , පොඩ්ඩක් ඉවසන්න ...";
+    locationElement.textContent = "Loading...";
     tempElement.textContent = "";
     weatherCondition.textContent = "";
 
@@ -32,16 +32,17 @@ weatherForm.addEventListener('submit',(event) => {
     fetch(locationApi).then(response => {
         response.json().then(data => {
             if(data.error){
-                locationElement.textContent = "අනේ හරියට ඉන්න තැන ටයිප් කරපන්කො.";
+                locationElement.textContent = "Invalid location.";
                 tempElement.textContent = "";
                 weatherCondition.textContent = "";
 
             } else {
-               /* if (data.description === "rain" || data.description === "fog"){
-                    weatherCondition.className = "wi wi-day-" + data.description
+                console.log()
+                if(data.description === "rain" || data.description === "fog") {
+                    weatherIcon.className = "wi wi-day-" + data.description
                 } else {
                     weatherIcon.className = "wi wi-day-cloudy"
-                } */
+                }
                 locationElement.textContent = data.cityName;
                 tempElement.textContent = (data.temperature - 273.5).toFixed(2) + String.fromCharCode(176);
                 weatherCondition.textContent = data.description.toUpperCase();
