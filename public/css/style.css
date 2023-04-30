@@ -21,8 +21,10 @@ header {
     margin-bottom: 48px;
 }
 
-.footer-copywright{
-    align-content: center;
+.Footer{
+    position: relative;
+    bottom: 50px;
+    text-align: center;
 }
 
 h2 {
