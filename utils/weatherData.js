@@ -10,7 +10,7 @@ const weatherData = (address , callback) => {
         if(error) {
             callback("Can't fetch data from open weather map api ", undefined)
         } else if(!body.main || !body.main.temp || !body.name || !body.weather) {
-            callback("Unable to find required data, try another location", undefined);
+            callback("Invalid Location.", undefined);
         } else {
             callback(undefined, {
                 temperature: body.main.temp,

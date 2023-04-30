@@ -21,6 +21,10 @@ header {
     margin-bottom: 48px;
 }
 
+.footer-copywright{
+    align-content: center;
+}
+
 h2 {
     font-size: 64px;
     margin-bottom: 16px;
@@ -48,10 +52,22 @@ h2 {
     justify-content: center;
     padding: 2rem;
     background-color: #fafafa;
+    border-radius: 20px;
+
+}
+.ph{
+    height: 30px;
+    width: 200px;
+
 }
 
+.button{
+    height: 30px;
+    width: 100px;
+
+}
 .weatherLocation button{
-    background: #080705;
+    background: #000000;
     color:#fff;
     border: 1px solid transparent;
 }

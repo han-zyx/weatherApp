@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>{{title}}</title>
-    <link rel="stylesheet" href="css/style.css"/> <!-- static path for public folder is already set in app.js -->
+    <link rel="stylesheet" href="css/style.css"/>
+
+
 </head>
-<body>
+<body >
 <div class="main-content">
     {{>header}}
+
+
     <article class="widget">
-        <form class="weatherLocation"><input placeholder="Enter your Location" type = "text"/><button>Search</button>
+        <form class="weatherLocation"><input class="ph" placeholder="Location." type = "text"/><button class="button">Seach</button>
         </form>
-        <div class="weatherIcon"><i class="wi wi-day-cloudy"></i></div>
+        <div class="weatherIcon"><i class="wi wi-cloud"></i></div>
         <div class="weatherInfo">
             <div class="temperature"><span></span></div>
             <div class="description">
@@ -20,7 +25,19 @@
         </div>
         <div class="date"></div>
     </article>
+
+
 </div>
-<script src="js/app_fr.js"></script> <!-- absolute path -->
+
+<footer class="Footer">
+    <div class="footer-copywright">WeatherApplication <a href="https://github.com/han-zyx">©HansakaTennakoon</a></div>
+    <ul class="footer-links">
+
+    </ul>
+</footer>
+
+
+
+<script src="js/app_fr.js"></script>
 </body>
 </html>
