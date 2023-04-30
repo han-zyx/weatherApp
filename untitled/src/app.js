@@ -15,17 +15,19 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicStaticDirPath));
 
 
-/*
+
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather App'
     })
 })
-*/
 
+/*
 app.get('', (req,res) => {
     res.send("hii this is weather app")
 });
+
+ */
 
 app.get('/weather', (req, res) => {
     const address = req.query.address
@@ -51,7 +53,9 @@ app.get('/weather', (req, res) => {
 });
 
 app.get("*",(req, res ) => {
-    res.send('Page Not Found.')
+    res.render('404',{
+        title : "page not found "
+    })
 })
 
 
