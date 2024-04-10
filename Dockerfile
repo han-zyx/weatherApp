@@ -1,10 +1,10 @@
 
 FROM node:alpine
 
-COPY ./ ./
+COPY src/ /app
 
 RUN npm install
 
 EXPOSE 8081
 
-CMD ["npm", "start"]
+CMD ["node", "app.js"]
